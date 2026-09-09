@@ -1,0 +1,100 @@
+{
+  "categories": {
+    "RECURRING_AUTO_LOAN_PAYMENT": {
+      "classifierId": "ralp-classifier",
+      "minClassificationConfidence": 0.90,
+      "formats": {
+        "RALP_FORMAT_01": {
+          "modelId": "bkofs_v3",
+          "fields": [
+            {
+              "model": "RoutingNo",
+              "canonical": "bankRoutingNumber",
+              "criticality": "CRITICAL",
+              "sensitive": true,
+              "threshold": 0.95,
+              "validators": ["abaRoutingChecksum", "digitLength9"]
+            },
+            {
+              "model": "AcctNo",
+              "canonical": "bankAccountNumber",
+              "criticality": "CRITICAL",
+              "sensitive": true,
+              "threshold": 0.95,
+              "validators": ["digitLengthRange"]
+            },
+            {
+              "model": "DebitAmt",
+              "canonical": "paymentAmount",
+              "criticality": "CRITICAL",
+              "sensitive": false,
+              "threshold": 0.95,
+              "validators": ["currencyAmountRange"]
+            },
+            {
+              "model": "StartDate",
+              "canonical": "firstPaymentDate",
+              "criticality": "CRITICAL",
+              "sensitive": false,
+              "threshold": 0.95,
+              "validators": ["dateWithinWindow"]
+            },
+            {
+              "model": "Frequency",
+              "canonical": "paymentFrequency",
+              "criticality": "IMPORTANT",
+              "sensitive": false,
+              "threshold": 0.85,
+              "validators": ["enumMembership"]
+            }
+          ]
+        },
+        "RALP_FORMAT_03": {
+          "modelId": "ralp-fmt03",
+          "fields": [
+            {
+              "model": "BankRoutingNumber",
+              "canonical": "bankRoutingNumber",
+              "criticality": "CRITICAL",
+              "sensitive": true,
+              "threshold": 0.95,
+              "validators": ["abaRoutingChecksum", "digitLength9"]
+            },
+            {
+              "model": "BankAccountNumber",
+              "canonical": "bankAccountNumber",
+              "criticality": "CRITICAL",
+              "sensitive": true,
+              "threshold": 0.95,
+              "validators": ["digitLengthRange"]
+            },
+            {
+              "model": "Amount",
+              "canonical": "paymentAmount",
+              "criticality": "CRITICAL",
+              "sensitive": false,
+              "threshold": 0.95,
+              "validators": ["currencyAmountRange"]
+            },
+            {
+              "model": "FirstDebitDate",
+              "canonical": "firstPaymentDate",
+              "criticality": "CRITICAL",
+              "sensitive": false,
+              "threshold": 0.95,
+              "validators": ["dateWithinWindow"]
+            },
+            {
+              "model": "PaymentFrequency",
+              "canonical": "paymentFrequency",
+              "criticality": "IMPORTANT",
+              "sensitive": false,
+              "threshold": 0.85,
+              "validators": ["enumMembership"]
+            }
+          ]
+        }
+      }
+    }
+  }
+}

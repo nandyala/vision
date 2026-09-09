@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ralp.v1.json",
+  "type": "object",
+  "required": ["bankRoutingNumber", "bankAccountNumber", "paymentAmount", "firstPaymentDate", "paymentFrequency"],
+  "properties": {
+    "bankRoutingNumber": { "type": "string" },
+    "bankAccountNumber": { "type": "string" },
+    "paymentAmount": { "type": "string" },
+    "firstPaymentDate": { "type": "string" },
+    "paymentFrequency": { "type": "string" }
+  }
+}

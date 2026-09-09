@@ -1,0 +1,25 @@
+spring:
+  main:
+    web-application-type: none
+  batch:
+    jdbc:
+      initialize-schema: always
+
+extraction:
+  inputFolder: ${EXTRACTION_INPUT_FOLDER:/Users/ds/IdeaProjects/docs/input/}
+  outputFolder: ${EXTRACTION_OUTPUT_FOLDER:/Users/ds/IdeaProjects/docs/output/}
+  assumeFormatId: ${EXTRACTION_ASSUME_FORMAT_ID:}
+  category: RECURRING_AUTO_LOAN_PAYMENT
+  chunkSize: 10
+  concurrency: 1
+  maxInFlightRequests: 1
+
+azure:
+  document-intelligence:
+    endpoint:
+    key:
+    tenant-id: ${AZURE_DOCUMENT_INTELLIGENCE_TENANT_ID:}
+    client-id: ${AZURE_DOCUMENT_INTELLIGENCE_CLIENT_ID:}
+    certificate-path: ${AZURE_DOCUMENT_INTELLIGENCE_CERTIFICATE_PATH:}
+    proxy-host: ${AZURE_DOCUMENT_INTELLIGENCE_PROXY_HOST:}
+    proxy-port: ${AZURE_DOCUMENT_INTELLIGENCE_PROXY_PORT:0}
